@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Virtualized Infinite Feed
 
 A high-performance React-based social media feed application with infinite scroll and UI virtualization.
@@ -127,3 +128,6 @@ The application is fully containerized with Docker Compose:
 ## Environment Variables
 
 - `VITE_API_BASE_URL`: Base URL for the API (defaults to http://localhost:8000)
+=======
+"# virtualized-infinite-feed" 
+>>>>>>> b5c0dff1d114b4e72f47f7769eb31918d8acdd67
