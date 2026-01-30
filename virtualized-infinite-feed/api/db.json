@@ -1,0 +1,130 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "imageUrl": "https://picsum.photos/seed/1/600/400",
+      "caption": "First post! Loving this view.",
+      "likes": 10,
+      "isLiked": false
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "imageUrl": "https://picsum.photos/seed/2/600/400",
+      "caption": "Beautiful sunset today!",
+      "likes": 25,
+      "isLiked": true
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "imageUrl": "https://picsum.photos/seed/3/600/400",
+      "caption": "Coffee and code - perfect combination!",
+      "likes": 42,
+      "isLiked": false
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "imageUrl": "https://picsum.photos/seed/4/600/400",
+      "caption": "Weekend vibes",
+      "likes": 18,
+      "isLiked": false
+    },
+    {
+      "id": 5,
+      "userId": 4,
+      "imageUrl": "https://picsum.photos/seed/5/600/400",
+      "caption": "Nature is amazing!",
+      "likes": 33,
+      "isLiked": true
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "imageUrl": "https://picsum.photos/seed/6/600/400",
+      "caption": "Working on a new project",
+      "likes": 7,
+      "isLiked": false
+    },
+    {
+      "id": 7,
+      "userId": 5,
+      "imageUrl": "https://picsum.photos/seed/7/600/400",
+      "caption": "Delicious food!",
+      "likes": 29,
+      "isLiked": false
+    },
+    {
+      "id": 8,
+      "userId": 3,
+      "imageUrl": "https://picsum.photos/seed/8/600/400",
+      "caption": "Coding all night!",
+      "likes": 15,
+      "isLiked": true
+    },
+    {
+      "id": 9,
+      "userId": 6,
+      "imageUrl": "https://picsum.photos/seed/9/600/400",
+      "caption": "Morning run complete",
+      "likes": 36,
+      "isLiked": false
+    },
+    {
+      "id": 10,
+      "userId": 1,
+      "imageUrl": "https://picsum.photos/seed/10/600/400",
+      "caption": "Beach day!",
+      "likes": 41,
+      "isLiked": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "avatarUrl": "https://i.pravatar.cc/150?u=1"
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "avatarUrl": "https://i.pravatar.cc/150?u=2"
+    },
+    {
+      "id": 3,
+      "username": "user3",
+      "avatarUrl": "https://i.pravatar.cc/150?u=3"
+    },
+    {
+      "id": 4,
+      "username": "user4",
+      "avatarUrl": "https://i.pravatar.cc/150?u=4"
+    },
+    {
+      "id": 5,
+      "username": "user5",
+      "avatarUrl": "https://i.pravatar.cc/150?u=5"
+    },
+    {
+      "id": 6,
+      "username": "user6",
+      "avatarUrl": "https://i.pravatar.cc/150?u=6"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 2,
+      "text": "Great photo!"
+    },
+    {
+      "id": 2,
+      "postId": 1,
+      "userId": 3,
+      "text": "Love the view"
+    }
+  ]
+}
