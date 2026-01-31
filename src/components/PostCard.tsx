@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { useSWRConfig } from 'swr'
 import { toast } from 'react-hot-toast'
 import LikeButton from './LikeButton'
@@ -100,4 +101,4 @@ const PostCard = ({ post, users }: PostCardProps) => {
   )
 }
 
-export default PostCard
+export default memo(PostCard)

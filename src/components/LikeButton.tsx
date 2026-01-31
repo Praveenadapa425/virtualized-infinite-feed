@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 interface LikeButtonProps {
   isLiked: boolean
   likes: number
@@ -28,4 +30,4 @@ const LikeButton = ({ isLiked, likes, onClick }: LikeButtonProps) => {
   )
 }
 
-export default LikeButton
+export default memo(LikeButton)

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import SimpleImage from './SimpleImage'
 
 interface UserAvatarProps {
@@ -24,4 +25,4 @@ const UserAvatar = ({ src, alt, size = 'md', className = '' }: UserAvatarProps) 
   )
 }
 
-export default UserAvatar
+export default memo(UserAvatar)
