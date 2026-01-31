@@ -5,6 +5,20 @@ import { toast } from 'react-hot-toast'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
+// Array of Unsplash image URLs for new posts
+const UNSPLASH_IMAGES = [
+  'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1418065460487-3a61e6dc3dbd?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?w=600&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=600&h=400&fit=crop'
+]
+
 const CreatePostModal = () => {
   const { isOpen, setIsOpen } = usePostModalStore()
   const { mutate } = useSWRConfig()
@@ -17,12 +31,12 @@ const CreatePostModal = () => {
 
     setIsSubmitting(true)
     try {
-      // For demo purposes, we'll send a simple JSON post
-      // In a real app, you'd handle image upload differently
+      // Select a random image from our Unsplash collection
+      const randomImage = UNSPLASH_IMAGES[Math.floor(Math.random() * UNSPLASH_IMAGES.length)]
       
       const postData = {
         userId: 1, // Default user ID for demo
-        imageUrl: 'https://picsum.photos/seed/' + Date.now() + '/600/400',
+        imageUrl: randomImage,
         caption: caption,
         likes: 0,
         isLiked: false
@@ -73,9 +87,10 @@ const CreatePostModal = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">Image</label>
+            <label className="block text-sm font-medium mb-2">Image Preview</label>
             <div className="border-2 border-dashed rounded-lg p-6 text-center bg-gray-50">
-              <p className="text-gray-500">Image upload demo - using placeholder image</p>
+              <p className="text-gray-500">New posts will include real images from Unsplash</p>
+              <p className="text-xs text-gray-400 mt-1">Random landscape photo will be selected</p>
             </div>
           </div>
 

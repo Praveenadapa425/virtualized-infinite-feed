@@ -3,7 +3,7 @@
     {
       "id": "1",
       "userId": 1,
-      "imageUrl": "https://placehold.co/600x400/4F46E5/FFFFFF?text=Post+1",
+      "imageUrl": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=400&fit=crop",
       "caption": "First post! Loving this view.",
       "likes": 11,
       "isLiked": true
@@ -11,7 +11,7 @@
     {
       "id": "2",
       "userId": 2,
-      "imageUrl": "https://placehold.co/600x400/EF4444/FFFFFF?text=Post+2",
+      "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
       "caption": "Beautiful sunset today!",
       "likes": 25,
       "isLiked": true
@@ -19,7 +19,7 @@
     {
       "id": "3",
       "userId": 3,
-      "imageUrl": "https://placehold.co/600x400/10B981/FFFFFF?text=Post+3",
+      "imageUrl": "https://images.unsplash.com/photo-1512207474315-7c40b20b6b0d?w=600&h=400&fit=crop",
       "caption": "Coffee and code - perfect combination!",
       "likes": 43,
       "isLiked": true
@@ -27,7 +27,7 @@
     {
       "id": "4",
       "userId": 1,
-      "imageUrl": "https://placehold.co/600x400/F59E0B/FFFFFF?text=Post+4",
+      "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
       "caption": "Weekend vibes",
       "likes": 18,
       "isLiked": false
@@ -35,7 +35,7 @@
     {
       "id": "5",
       "userId": 4,
-      "imageUrl": "https://placehold.co/600x400/8B5CF6/FFFFFF?text=Post+5",
+      "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop",
       "caption": "Nature is amazing!",
       "likes": 33,
       "isLiked": true
@@ -43,7 +43,7 @@
     {
       "id": "6",
       "userId": 2,
-      "imageUrl": "https://placehold.co/600x400/EC4899/FFFFFF?text=Post+6",
+      "imageUrl": "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?w=600&h=400&fit=crop",
       "caption": "Working on a new project",
       "likes": 7,
       "isLiked": false
@@ -51,7 +51,7 @@
     {
       "id": "7",
       "userId": 5,
-      "imageUrl": "https://placehold.co/600x400/06B6D4/FFFFFF?text=Post+7",
+      "imageUrl": "https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&h=400&fit=crop",
       "caption": "Delicious food!",
       "likes": 29,
       "isLiked": false
@@ -59,7 +59,7 @@
     {
       "id": "8",
       "userId": 3,
-      "imageUrl": "https://placehold.co/600x400/84CC16/FFFFFF?text=Post+8",
+      "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
       "caption": "Coding all night!",
       "likes": 15,
       "isLiked": true
@@ -67,7 +67,7 @@
     {
       "id": "9",
       "userId": 6,
-      "imageUrl": "https://placehold.co/600x400/F97316/FFFFFF?text=Post+9",
+      "imageUrl": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
       "caption": "Morning run complete",
       "likes": 36,
       "isLiked": false
@@ -75,7 +75,7 @@
     {
       "id": "10",
       "userId": 1,
-      "imageUrl": "https://placehold.co/600x400/6366F1/FFFFFF?text=Post+10",
+      "imageUrl": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=600&h=400&fit=crop",
       "caption": "Beach day!",
       "likes": 41,
       "isLiked": false
@@ -83,7 +83,7 @@
     {
       "id": "885f",
       "userId": 1,
-      "imageUrl": "https://placehold.co/600x400/EF4444/FFFFFF?text=Test+Post",
+      "imageUrl": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=600&h=400&fit=crop",
       "caption": "Test post",
       "likes": 0,
       "isLiked": false
@@ -91,7 +91,7 @@
     {
       "id": "3239",
       "userId": 1,
-      "imageUrl": "https://placehold.co/600x400/10B981/FFFFFF?text=Another+Test",
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
       "caption": "Another test post",
       "likes": 0,
       "isLiked": false
@@ -99,7 +99,7 @@
     {
       "id": "15d1",
       "userId": 1,
-      "imageUrl": "https://placehold.co/600x400/8B5CF6/FFFFFF?text=Final+Test",
+      "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=400&fit=crop",
       "caption": "Final test post",
       "likes": 0,
       "isLiked": false
@@ -107,7 +107,7 @@
     {
       "id": "e155",
       "userId": "1",
-      "imageUrl": "https://placehold.co/600x400/F59E0B/FFFFFF?text=Latest+Test",
+      "imageUrl": "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=600&h=400&fit=crop",
       "caption": "Latest test post",
       "likes": 0,
       "isLiked": false
