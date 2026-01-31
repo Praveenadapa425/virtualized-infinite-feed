@@ -5,8 +5,8 @@
       "userId": "1",
       "imageUrl": "https://picsum.photos/600/400?random=1",
       "caption": "First post! Loving this view.",
-      "likes": 11,
-      "isLiked": true
+      "likes": 15,
+      "isLiked": false
     },
     {
       "id": "2",
@@ -79,6 +79,22 @@
       "caption": "Beach day!",
       "likes": 41,
       "isLiked": false
+    },
+    {
+      "userId": "1",
+      "imageUrl": "https://picsum.photos/600/400?random=999",
+      "caption": "New test post!",
+      "likes": 0,
+      "isLiked": false,
+      "id": "teFr5Xc"
+    },
+    {
+      "userId": "1",
+      "imageUrl": "https://picsum.photos/600/400?random=107",
+      "caption": "123",
+      "likes": 0,
+      "isLiked": false,
+      "id": "UzNU43w"
     }
   ],
   "users": [

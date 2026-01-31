@@ -135,6 +135,8 @@ The mock API provides the following endpoints:
 - `GET /users/:id` - Get a specific user
 - `GET /comments` - Get all comments
 
+For detailed API documentation, see [API.md](./API.md).
+
 ## Key Features Implementation
 
 ### Virtualization
