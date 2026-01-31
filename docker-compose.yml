@@ -8,7 +8,7 @@ services:
     ports:
       - '3000:80'
     environment:
-      - VITE_API_BASE_URL=http://api:8000
+      - VITE_API_BASE_URL=http://api:8001
     depends_on:
       api:
         condition: service_healthy
@@ -21,13 +21,13 @@ services:
 
   api:
     image: clue/json-server
-    command: -H 0.0.0.0 -p 8000 -w /data/db.json
+    command: -H 0.0.0.0 -p 8001 -w /data/db.json
     ports:
-      - '8000:8000'
+      - '8001:8001'
     volumes:
       - ./api:/data
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8000/posts"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8001/posts"]
       interval: 10s
       timeout: 5s
       retries: 5

@@ -3,7 +3,7 @@ import { useSWRConfig } from 'swr'
 import { usePostModalStore } from '../store/modalStore'
 import { toast } from 'react-hot-toast'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001'
 
 // Array of Unsplash image URLs for new posts
 const UNSPLASH_IMAGES = [
@@ -45,8 +45,10 @@ const CreatePostModal = () => {
       // Select a random image from our Unsplash collection
       const randomImage = UNSPLASH_IMAGES[Math.floor(Math.random() * UNSPLASH_IMAGES.length)]
       
+      // For demo purposes, use a random user ID
+      const randomUserId = String(Math.floor(Math.random() * 6) + 1); // Random user ID between 1-6
       const postData = {
-        userId: 1, // Default user ID for demo
+        userId: randomUserId,
         imageUrl: randomImage,
         caption: caption,
         likes: 0,
@@ -117,6 +119,9 @@ const CreatePostModal = () => {
                   src={previewImage}
                   alt="Preview"
                   className="w-full h-48 object-cover rounded-lg border"
+                  onError={(e) => {
+                    console.error('Failed to load preview image:', e);
+                  }}
                 />
                 <p className="text-xs text-gray-500 mt-1">Image preview</p>
               </div>

@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast'
 import LikeButton from './LikeButton'
 import SimpleImage from './SimpleImage'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001'
 
 interface Post {
   id: string

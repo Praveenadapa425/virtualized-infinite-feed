@@ -2,80 +2,80 @@
   "posts": [
     {
       "id": "1",
-      "userId": 1,
-      "imageUrl": "/images/1.png",
+      "userId": "1",
+      "imageUrl": "https://picsum.photos/600/400?random=1",
       "caption": "First post! Loving this view.",
       "likes": 11,
       "isLiked": true
     },
     {
       "id": "2",
-      "userId": 2,
-      "imageUrl": "/images/2.jpg",
+      "userId": "2",
+      "imageUrl": "https://picsum.photos/600/400?random=2",
       "caption": "Beautiful sunset today!",
       "likes": 25,
       "isLiked": true
     },
     {
       "id": "3",
-      "userId": 3,
-      "imageUrl": "/images/3.png",
+      "userId": "3",
+      "imageUrl": "https://picsum.photos/600/400?random=3",
       "caption": "Coffee and code - perfect combination!",
       "likes": 43,
       "isLiked": true
     },
     {
       "id": "4",
-      "userId": 1,
-      "imageUrl": "/images/4.jpg",
+      "userId": "1",
+      "imageUrl": "https://picsum.photos/600/400?random=4",
       "caption": "Weekend vibes",
       "likes": 18,
       "isLiked": false
     },
     {
       "id": "5",
-      "userId": 4,
-      "imageUrl": "/images/5.jpg",
+      "userId": "4",
+      "imageUrl": "https://picsum.photos/600/400?random=5",
       "caption": "Nature is amazing!",
       "likes": 33,
       "isLiked": true
     },
     {
       "id": "6",
-      "userId": 2,
-      "imageUrl": "/images/6.png",
+      "userId": "2",
+      "imageUrl": "https://picsum.photos/600/400?random=6",
       "caption": "Working on a new project",
-      "likes": 7,
-      "isLiked": false
+      "likes": 8,
+      "isLiked": true
     },
     {
       "id": "7",
-      "userId": 5,
-      "imageUrl": "/images/7.png",
+      "userId": "5",
+      "imageUrl": "https://picsum.photos/600/400?random=7",
       "caption": "Delicious food!",
       "likes": 29,
       "isLiked": false
     },
     {
       "id": "8",
-      "userId": 3,
-      "imageUrl": "/images/1.png",
+      "userId": "3",
+      "imageUrl": "https://picsum.photos/600/400?random=8",
       "caption": "Coding all night!",
       "likes": 15,
       "isLiked": true
     },
     {
       "id": "9",
-      "userId": 6,
-      "imageUrl": "/images/2.jpg",
+      "userId": "6",
+      "imageUrl": "https://picsum.photos/600/400?random=9",
       "caption": "Morning run complete",
       "likes": 36,
       "isLiked": false
     },
     {
       "id": "10",
-      "userId": 1,
-      "imageUrl": "/images/3.png",
+      "userId": "1",
+      "imageUrl": "https://picsum.photos/600/400?random=10",
       "caption": "Beach day!",
       "likes": 41,
       "isLiked": false
@@ -85,32 +85,32 @@
     {
       "id": "1",
       "username": "user1",
-      "avatarUrl": "/images/1.png"
+      "avatarUrl": "https://i.pravatar.cc/150?u=1"
     },
     {
       "id": "2",
       "username": "user2",
-      "avatarUrl": "/images/2.jpg"
+      "avatarUrl": "https://i.pravatar.cc/150?u=2"
     },
     {
       "id": "3",
       "username": "user3",
-      "avatarUrl": "/images/3.png"
+      "avatarUrl": "https://i.pravatar.cc/150?u=3"
     },
     {
       "id": "4",
       "username": "user4",
-      "avatarUrl": "/images/4.jpg"
+      "avatarUrl": "https://i.pravatar.cc/150?u=4"
     },
     {
       "id": "5",
       "username": "user5",
-      "avatarUrl": "/images/5.jpg"
+      "avatarUrl": "https://i.pravatar.cc/150?u=5"
     },
     {
       "id": "6",
       "username": "user6",
-      "avatarUrl": "/images/6.png"
+      "avatarUrl": "https://i.pravatar.cc/150?u=6"
     }
   ],
   "comments": [

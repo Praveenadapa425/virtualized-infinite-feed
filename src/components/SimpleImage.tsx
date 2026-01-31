@@ -10,100 +10,89 @@ interface SimpleImageProps {
 const SimpleImage = ({ src, alt, className = '', fallback = '👤' }: SimpleImageProps) => {
   const [hasError, setHasError] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [isTimeout, setIsTimeout] = useState(false)
   const imgRef = useRef<HTMLImageElement>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  // Cleanup timeout on unmount
   useEffect(() => {
-    // Reset states when src changes
-    setHasError(false)
-    setIsLoaded(false)
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Reset state completely when src changes
+  useEffect(() => {
+    // Force complete reset of all states
+    setHasError(false);
+    setIsLoaded(false);
+    setIsTimeout(false);
+    
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
     
     if (!src) {
-      console.warn('SimpleImage: Empty src provided')
-      setHasError(true)
-      return
+      setHasError(true);
+      return;
     }
+ 
+    // Set a timeout to show fallback if image takes too long to load
+    timeoutRef.current = setTimeout(() => {
+      setIsTimeout(true);
+      setIsLoaded(true);
+    }, 10000); // 10 seconds timeout
+  }, [src]); // Only depend on src
 
-    // Validate URL format
-    try {
-      new URL(src)
-    } catch (e) {
-      console.error('SimpleImage: Invalid URL format:', src)
-      setHasError(true)
-      return
-    }
-
-    // Check if image is already cached
-    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
-      console.log('SimpleImage: Image already cached:', src)
-      setIsLoaded(true)
-      return
-    }
-
-    // Set up image loading with timeout
-    const img = new Image()
-    img.src = src
-    
-    const handleLoad = () => {
-      console.log('SimpleImage: Image loaded successfully:', src)
-      setIsLoaded(true)
-    }
-    
-    const handleError = (e: any) => {
-      console.error('SimpleImage: Image failed to load:', src, e)
-      setHasError(true)
-      setIsLoaded(true)
-    }
-    
-    // Add timeout for loading
-    const timeoutId = setTimeout(() => {
-      console.warn('SimpleImage: Image loading timeout:', src)
-      if (!isLoaded && !hasError) {
-        setHasError(true)
-        setIsLoaded(true)
-      }
-    }, 10000) // 10 second timeout
-    
-    img.addEventListener('load', handleLoad)
-    img.addEventListener('error', handleError)
-    
-    // Cleanup
+  // Clean up timeout when component unmounts or when image loads
+  useEffect(() => {
     return () => {
-      clearTimeout(timeoutId)
-      img.removeEventListener('load', handleLoad)
-      img.removeEventListener('error', handleError)
-    }
-  }, [src, isLoaded, hasError])
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   // Show fallback if there's an error
-  if (hasError) {
+  if (hasError || isTimeout) {
     return (
       <div className={`${className} bg-gray-200 flex items-center justify-center border-2 border-dashed border-red-300`}>
         <div className="text-center">
           <span className="text-gray-500 text-xs block">{fallback}</span>
-          <span className="text-red-500 text-xs block mt-1">Failed to load image</span>
+          <span className="text-red-500 text-xs block mt-1">{hasError ? 'Failed to load image' : 'Image took too long to load'}</span>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className={`${className} relative border`}>
-      {/* Actual image - always rendered and visible */}
+      {/* Key prop forces complete re-render when src changes - CRITICAL for react-window */}
       <img
+        key={src} // This is the key fix for react-window virtualization
         ref={imgRef}
         src={src}
         alt={alt}
-        className={`w-full h-full ${isLoaded ? 'opacity-100' : 'opacity-100'}`}
+        className={`w-full h-full transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         loading="lazy"
         decoding="async"
         onLoad={() => {
-          console.log('SimpleImage: onLoad triggered:', src)
-          setIsLoaded(true)
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+          }
+          setIsLoaded(true);
         }}
-        onError={(e) => {
-          console.error('SimpleImage: onError triggered:', src, e)
-          setHasError(true)
-          setIsLoaded(true)
+        onError={(_e) => {
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+          }
+          setHasError(true);
+          setIsLoaded(true);
         }}
       />
       
@@ -117,7 +106,7 @@ const SimpleImage = ({ src, alt, className = '', fallback = '👤' }: SimpleImag
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default SimpleImage

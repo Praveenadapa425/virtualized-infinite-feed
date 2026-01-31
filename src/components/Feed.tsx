@@ -10,7 +10,7 @@ import ErrorBoundary from './ErrorBoundary'
 import { Link } from 'react-router-dom'
 import UserAvatar from './UserAvatar'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001'
 
 interface Post {
   id: string
@@ -34,7 +34,7 @@ const Feed = () => {
 
   const PAGE_SIZE = 10
 
-  const getKey = (pageIndex: number, previousPageData: Post[]) => {
+  const getKey = (pageIndex: number, previousPageData: Post[] | null) => {
     if (previousPageData && !previousPageData.length) return null
     return `${API_BASE_URL}/posts?_page=${pageIndex + 1}&_limit=${PAGE_SIZE}`
   }
@@ -63,6 +63,9 @@ const Feed = () => {
     fetch(`${API_BASE_URL}/users`)
       .then(res => res.json())
       .then(setUsers)
+      .catch(error => {
+        console.error('Error fetching users:', error);
+      });
   }, [])
 
   const loadMoreItems = () => {
@@ -140,7 +143,7 @@ const Feed = () => {
         >
           {({ onItemsRendered, ref }) => (
             <List
-              height={window.innerHeight - 100}
+              height={typeof window !== 'undefined' ? window.innerHeight - 100 : 600}
               itemCount={posts.length}
               itemSize={500}
               onItemsRendered={onItemsRendered}
