@@ -9,6 +9,7 @@ import CreatePostModal from './CreatePostModal'
 import ErrorBoundary from './ErrorBoundary'
 import { Link } from 'react-router-dom'
 import UserAvatar from './UserAvatar'
+import ImageDebug from './ImageDebug'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
@@ -110,6 +111,7 @@ const Feed = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
+      <ImageDebug />
       <div className="sticky top-0 bg-white border-b border-gray-200 p-4 z-10">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Feed</h1>

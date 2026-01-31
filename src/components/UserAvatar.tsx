@@ -1,4 +1,4 @@
-import OptimizedImage from './OptimizedImage'
+import SimpleImage from './SimpleImage'
 
 interface UserAvatarProps {
   src: string
@@ -15,11 +15,11 @@ const UserAvatar = ({ src, alt, size = 'md', className = '' }: UserAvatarProps) 
   }
 
   return (
-    <OptimizedImage
+    <SimpleImage
       src={src}
       alt={alt}
       className={`${sizeClasses[size]} rounded-full ${className}`}
-      placeholder="👤"
+      fallback="👤"
     />
   )
 }

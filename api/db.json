@@ -3,7 +3,7 @@
     {
       "id": "1",
       "userId": 1,
-      "imageUrl": "https://picsum.photos/seed/1/600/400",
+      "imageUrl": "https://placehold.co/600x400/4F46E5/FFFFFF?text=Post+1",
       "caption": "First post! Loving this view.",
       "likes": 11,
       "isLiked": true
@@ -11,7 +11,7 @@
     {
       "id": "2",
       "userId": 2,
-      "imageUrl": "https://picsum.photos/seed/2/600/400",
+      "imageUrl": "https://placehold.co/600x400/EF4444/FFFFFF?text=Post+2",
       "caption": "Beautiful sunset today!",
       "likes": 25,
       "isLiked": true
@@ -19,7 +19,7 @@
     {
       "id": "3",
       "userId": 3,
-      "imageUrl": "https://picsum.photos/seed/3/600/400",
+      "imageUrl": "https://placehold.co/600x400/10B981/FFFFFF?text=Post+3",
       "caption": "Coffee and code - perfect combination!",
       "likes": 43,
       "isLiked": true
@@ -27,7 +27,7 @@
     {
       "id": "4",
       "userId": 1,
-      "imageUrl": "https://picsum.photos/seed/4/600/400",
+      "imageUrl": "https://placehold.co/600x400/F59E0B/FFFFFF?text=Post+4",
       "caption": "Weekend vibes",
       "likes": 18,
       "isLiked": false
@@ -35,7 +35,7 @@
     {
       "id": "5",
       "userId": 4,
-      "imageUrl": "https://picsum.photos/seed/5/600/400",
+      "imageUrl": "https://placehold.co/600x400/8B5CF6/FFFFFF?text=Post+5",
       "caption": "Nature is amazing!",
       "likes": 33,
       "isLiked": true
@@ -43,7 +43,7 @@
     {
       "id": "6",
       "userId": 2,
-      "imageUrl": "https://picsum.photos/seed/6/600/400",
+      "imageUrl": "https://placehold.co/600x400/EC4899/FFFFFF?text=Post+6",
       "caption": "Working on a new project",
       "likes": 7,
       "isLiked": false
@@ -51,7 +51,7 @@
     {
       "id": "7",
       "userId": 5,
-      "imageUrl": "https://picsum.photos/seed/7/600/400",
+      "imageUrl": "https://placehold.co/600x400/06B6D4/FFFFFF?text=Post+7",
       "caption": "Delicious food!",
       "likes": 29,
       "isLiked": false
@@ -59,7 +59,7 @@
     {
       "id": "8",
       "userId": 3,
-      "imageUrl": "https://picsum.photos/seed/8/600/400",
+      "imageUrl": "https://placehold.co/600x400/84CC16/FFFFFF?text=Post+8",
       "caption": "Coding all night!",
       "likes": 15,
       "isLiked": true
@@ -67,7 +67,7 @@
     {
       "id": "9",
       "userId": 6,
-      "imageUrl": "https://picsum.photos/seed/9/600/400",
+      "imageUrl": "https://placehold.co/600x400/F97316/FFFFFF?text=Post+9",
       "caption": "Morning run complete",
       "likes": 36,
       "isLiked": false
@@ -75,7 +75,7 @@
     {
       "id": "10",
       "userId": 1,
-      "imageUrl": "https://picsum.photos/seed/10/600/400",
+      "imageUrl": "https://placehold.co/600x400/6366F1/FFFFFF?text=Post+10",
       "caption": "Beach day!",
       "likes": 41,
       "isLiked": false
@@ -83,7 +83,7 @@
     {
       "id": "885f",
       "userId": 1,
-      "imageUrl": "https://picsum.photos/seed/test/600/400",
+      "imageUrl": "https://placehold.co/600x400/EF4444/FFFFFF?text=Test+Post",
       "caption": "Test post",
       "likes": 0,
       "isLiked": false
@@ -91,7 +91,7 @@
     {
       "id": "3239",
       "userId": 1,
-      "imageUrl": "https://picsum.photos/seed/newpost/600/400",
+      "imageUrl": "https://placehold.co/600x400/10B981/FFFFFF?text=Another+Test",
       "caption": "Another test post",
       "likes": 0,
       "isLiked": false
@@ -99,7 +99,7 @@
     {
       "id": "15d1",
       "userId": 1,
-      "imageUrl": "https://picsum.photos/seed/finaltest/600/400",
+      "imageUrl": "https://placehold.co/600x400/8B5CF6/FFFFFF?text=Final+Test",
       "caption": "Final test post",
       "likes": 0,
       "isLiked": false
@@ -107,7 +107,7 @@
     {
       "id": "e155",
       "userId": "1",
-      "imageUrl": "https://picsum.photos/seed/latesttest/600/400",
+      "imageUrl": "https://placehold.co/600x400/F59E0B/FFFFFF?text=Latest+Test",
       "caption": "Latest test post",
       "likes": 0,
       "isLiked": false

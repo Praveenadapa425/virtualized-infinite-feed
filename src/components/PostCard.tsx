@@ -1,7 +1,7 @@
 import { useSWRConfig } from 'swr'
 import { toast } from 'react-hot-toast'
 import LikeButton from './LikeButton'
-import OptimizedImage from './OptimizedImage'
+import SimpleImage from './SimpleImage'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
@@ -68,22 +68,22 @@ const PostCard = ({ post, users }: PostCardProps) => {
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <div className="p-4">
         <div className="flex items-center space-x-3 mb-4">
-          <OptimizedImage
+          <SimpleImage
             src={user?.avatarUrl || 'https://i.pravatar.cc/150'}
             alt={user?.username || 'User'}
             className="w-10 h-10 rounded-full"
-            placeholder="👤"
+            fallback="👤"
           />
           <div>
             <h3 className="font-semibold">{user?.username || 'Unknown User'}</h3>
           </div>
         </div>
         
-        <OptimizedImage
+        <SimpleImage
           src={post.imageUrl}
           alt={post.caption}
           className="w-full h-64 object-cover mb-4"
-          placeholder="🖼️"
+          fallback="🖼️"
         />
         
         <p className="text-gray-700 mb-4">{post.caption}</p>

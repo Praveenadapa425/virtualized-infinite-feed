@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import PostCard from './PostCard'
 import ErrorBoundary from './ErrorBoundary'
-import OptimizedImage from './OptimizedImage'
+import SimpleImage from './SimpleImage'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
@@ -87,11 +87,11 @@ const Profile = () => {
     <div className="max-w-2xl mx-auto">
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <div className="flex items-center space-x-4">
-          <OptimizedImage
+          <SimpleImage
             src={user.avatarUrl}
             alt={user.username}
             className="w-16 h-16 rounded-full"
-            placeholder="👤"
+            fallback="👤"
           />
           <div>
             <h1 className="text-2xl font-bold">{user.username}</h1>
