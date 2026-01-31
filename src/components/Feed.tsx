@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { FixedSizeList as List } from 'react-window'
+import InfiniteLoader from 'react-window-infinite-loader'
 import useSWRInfinite from 'swr/infinite'
 import { usePostModalStore } from '../store/modalStore'
 import PostCard from './PostCard'
@@ -7,7 +9,6 @@ import CreatePostModal from './CreatePostModal'
 import ErrorBoundary from './ErrorBoundary'
 import { Link } from 'react-router-dom'
 import UserAvatar from './UserAvatar'
-import ImageTest from './ImageTest'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
@@ -70,9 +71,45 @@ const Feed = () => {
     }
   }
 
+  const isItemLoaded = (index: number) => {
+    return !!posts[index]
+  }
+
+  const Row = ({ index, style }: { index: number; style: React.CSSProperties }) => {
+    const post = posts[index]
+    if (!post) return <div style={style}></div>
+    
+    // Find the user for this post to create a profile link
+    const user = users.find(u => u.id === post.userId)
+    
+    return (
+      <div style={style} className="px-4 py-2">
+        <ErrorBoundary>
+          <div className="mb-2 flex items-center space-x-2">
+            {user && (
+              <>
+                <UserAvatar 
+                  src={user.avatarUrl} 
+                  alt={user.username}
+                  size="sm"
+                />
+                <Link 
+                  to={`/profile/${user.id}`} 
+                  className="text-blue-500 hover:text-blue-700 text-sm font-medium"
+                >
+                  @{user.username}
+                </Link>
+              </>
+            )}
+          </div>
+          <PostCard post={post} users={users} />
+        </ErrorBoundary>
+      </div>
+    )
+  }
+
   return (
     <div className="max-w-2xl mx-auto">
-      <ImageTest />
       <div className="sticky top-0 bg-white border-b border-gray-200 p-4 z-10">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Feed</h1>
@@ -96,46 +133,24 @@ const Feed = () => {
           Failed to load posts
         </div>
       ) : (
-        <div className="space-y-4 p-4">
-          {posts.map((post) => {
-            const user = users.find(u => u.id === post.userId)
-            return (
-              <div key={post.id} className="px-4 py-2">
-                <ErrorBoundary>
-                  <div className="mb-2 flex items-center space-x-2">
-                    {user && (
-                      <>
-                        <UserAvatar 
-                          src={user.avatarUrl} 
-                          alt={user.username}
-                          size="sm"
-                        />
-                        <Link 
-                          to={`/profile/${user.id}`} 
-                          className="text-blue-500 hover:text-blue-700 text-sm font-medium"
-                        >
-                          @{user.username}
-                        </Link>
-                      </>
-                    )}
-                  </div>
-                  <PostCard post={post} users={users} />
-                </ErrorBoundary>
-              </div>
-            )
-          })}
-          {!isReachingEnd && (
-            <div className="text-center p-4">
-              <button
-                onClick={loadMoreItems}
-                disabled={isLoadingMore}
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg disabled:opacity-50"
-              >
-                {isLoadingMore ? 'Loading...' : 'Load More'}
-              </button>
-            </div>
+        <InfiniteLoader
+          isItemLoaded={isItemLoaded}
+          itemCount={isReachingEnd ? posts.length : posts.length + 1}
+          loadMoreItems={loadMoreItems}
+        >
+          {({ onItemsRendered, ref }) => (
+            <List
+              height={window.innerHeight - 100}
+              itemCount={posts.length}
+              itemSize={500}
+              onItemsRendered={onItemsRendered}
+              ref={ref}
+              width={'100%'}
+            >
+              {Row}
+            </List>
           )}
-        </div>
+        </InfiniteLoader>
       )}
 
       {isOpen && <CreatePostModal />}

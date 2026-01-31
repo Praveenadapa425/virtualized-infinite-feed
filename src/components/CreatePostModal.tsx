@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useSWRConfig } from 'swr'
 import { usePostModalStore } from '../store/modalStore'
 import { toast } from 'react-hot-toast'
@@ -24,6 +24,17 @@ const CreatePostModal = () => {
   const { mutate } = useSWRConfig()
   const [caption, setCaption] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [previewImage, setPreviewImage] = useState<string | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      // Create preview URL
+      const previewUrl = URL.createObjectURL(file)
+      setPreviewImage(previewUrl)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -54,6 +65,10 @@ const CreatePostModal = () => {
 
       // Clear form and close modal
       setCaption('')
+      setPreviewImage(null)
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
       setIsOpen(false)
 
       // Revalidate posts
@@ -87,11 +102,31 @@ const CreatePostModal = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">Image Preview</label>
-            <div className="border-2 border-dashed rounded-lg p-6 text-center bg-gray-50">
-              <p className="text-gray-500">New posts will include real images from Unsplash</p>
-              <p className="text-xs text-gray-400 mt-1">Random landscape photo will be selected</p>
-            </div>
+            <label className="block text-sm font-medium mb-2">Image</label>
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleImageSelect}
+              accept="image/*"
+              className="w-full p-2 border border-gray-300 rounded-lg"
+            />
+            
+            {previewImage && (
+              <div className="mt-2">
+                <img
+                  src={previewImage}
+                  alt="Preview"
+                  className="w-full h-48 object-cover rounded-lg border"
+                />
+                <p className="text-xs text-gray-500 mt-1">Image preview</p>
+              </div>
+            )}
+            
+            {!previewImage && (
+              <div className="border-2 border-dashed rounded-lg p-6 text-center bg-gray-50 mt-2">
+                <p className="text-gray-500">Select an image to preview</p>
+              </div>
+            )}
           </div>
 
           <div className="flex justify-end space-x-3">
