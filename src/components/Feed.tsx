@@ -6,6 +6,9 @@ import { usePostModalStore } from '../store/modalStore'
 import PostCard from './PostCard'
 import PostSkeleton from './PostSkeleton'
 import CreatePostModal from './CreatePostModal'
+import ErrorBoundary from './ErrorBoundary'
+import { Link } from 'react-router-dom'
+import UserAvatar from './UserAvatar'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
@@ -76,9 +79,31 @@ const Feed = () => {
     const post = posts[index]
     if (!post) return <div style={style}></div>
     
+    // Find the user for this post to create a profile link
+    const user = users.find(u => u.id === post.userId)
+    
     return (
       <div style={style} className="px-4 py-2">
-        <PostCard post={post} users={users} />
+        <ErrorBoundary>
+          <div className="mb-2 flex items-center space-x-2">
+            {user && (
+              <>
+                <UserAvatar 
+                  src={user.avatarUrl} 
+                  alt={user.username}
+                  size="sm"
+                />
+                <Link 
+                  to={`/profile/${user.id}`} 
+                  className="text-blue-500 hover:text-blue-700 text-sm font-medium"
+                >
+                  @{user.username}
+                </Link>
+              </>
+            )}
+          </div>
+          <PostCard post={post} users={users} />
+        </ErrorBoundary>
       </div>
     )
   }
