@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { FixedSizeList as List } from 'react-window'
-import { InfiniteLoader } from 'react-window-infinite-loader'
+import InfiniteLoader from 'react-window-infinite-loader'
 import useSWRInfinite from 'swr/infinite'
 import { usePostModalStore } from '../store/modalStore'
 import PostCard from './PostCard'
@@ -10,8 +10,8 @@ import CreatePostModal from './CreatePostModal'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 interface Post {
-  id: number
-  userId: number
+  id: string
+  userId: string
   imageUrl: string
   caption: string
   likes: number
@@ -19,7 +19,7 @@ interface Post {
 }
 
 interface User {
-  id: number
+  id: string
   username: string
   avatarUrl: string
 }
@@ -120,6 +120,7 @@ const Feed = () => {
               itemSize={500}
               onItemsRendered={onItemsRendered}
               ref={ref}
+              width={'100%'}
             >
               {Row}
             </List>

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useSWRConfig } from 'swr'
 import { toast } from 'react-hot-toast'
 import LikeButton from './LikeButton'
@@ -6,8 +5,8 @@ import LikeButton from './LikeButton'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 interface Post {
-  id: number
-  userId: number
+  id: string
+  userId: string
   imageUrl: string
   caption: string
   likes: number
@@ -15,7 +14,7 @@ interface Post {
 }
 
 interface User {
-  id: number
+  id: string
   username: string
   avatarUrl: string
 }
@@ -57,7 +56,7 @@ const PostCard = ({ post, users }: PostCardProps) => {
             )
           )
         },
-        { revalidate: false }
+        { revalidate: true }
       )
     } catch (error) {
       toast.error('Failed to like post')
