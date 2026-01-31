@@ -50,11 +50,6 @@ const SimpleImage = ({ src, alt, className = '', fallback = '👤' }: SimpleImag
         onError={handleError}
         loading="lazy"
       />
-      
-      {/* Loaded indicator */}
-      <div className="absolute top-0 right-0 bg-green-500 text-white text-xs px-1 py-0.5 rounded-bl">
-        ✓
-      </div>
     </div>
   )
 }
