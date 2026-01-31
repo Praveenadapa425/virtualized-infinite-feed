@@ -156,6 +156,30 @@ Each post is wrapped in an ErrorBoundary component that catches rendering errors
 
 ## Testing
 
+For comprehensive testing instructions and scripts, see [TESTING.md](./TESTING.md).
+
+### Quick Test Scripts
+
+We provide automated test scripts to easily verify all functionality:
+
+- `test-app.sh` - Bash script for Unix/Linux systems
+- `test-app.bat` - Batch script for Windows systems
+
+To run the automated tests:
+
+**Unix/Linux:**
+```bash
+chmod +x test-app.sh
+./test-app.sh
+```
+
+**Windows:**
+```cmd
+test-app.bat
+```
+
+These scripts will verify all API endpoints and application functionality.
+
 ### Verify Image Compression
 1. Open the browser console
 2. Check that `window.compressImage` is defined
